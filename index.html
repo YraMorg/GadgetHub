@@ -1,174 +1,55 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <title>GadgetHub – Динамічний фільтр</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    html, body { margin: 0; font-family: Arial, sans-serif; background: #f9f9f9; height: 100%; }
-    header { background: #222; color: white; padding: 1em 2em; text-align: center; }
-    nav a { color: white; margin: 0 10px; text-decoration: none; }
-    main { padding: 2em; display: flex; justify-content: space-between; min-height: calc(100vh - 160px); }
-    .products { width: 70%; }
-    .section h2 { font-size: 1.2em; margin-bottom: 0.5em; }
-    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1em; }
-    .product { background: white; border: 1px solid #ccc; border-radius: 8px; padding: 1em; text-align: center; }
-    .filter-box { width: 28%; background: white; border: 1px solid #ccc; padding: 1em; border-radius: 8px; height: fit-content; }
-    .filter-box h3 { margin-top: 0; }
-    .filter-box label { display: block; margin-top: 1em; font-weight: bold; }
-    .filter-box input, .filter-box select, .filter-box button {
-      width: 100%; padding: 0.5em; margin-top: 0.3em; border-radius: 4px;
-    }
-    .filter-box button { background: #007bff; color: white; border: none; cursor: pointer; }
-    .filter-box button:hover { background: #0056b3; }
-    .hidden { display: none; }
-    footer {
-      background: #eee;
-      padding: 1.5em;
-      font-size: 0.9em;
-      text-align: center;
-      position: sticky;
-      bottom: 0;
-      width: 100%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GadgetHub - Головна</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="site-header">
+        <div class="logo">GadgetHub</div>
+        <a href="register.html" class="register-link">Реєстрація</a>
+    </header>
 
-<header>
-  <h1>GadgetHub</h1>
-  <nav>
-    <a href="#">Головна</a>
-    <a href="catalog.html">Каталог</a>
-    <a href="#">Реєстрація</a>
-    <a href="#">Кошик</a>
-  </nav>
-</header>
+    <main>
+        <section class="main-buttons">
+            <a href="catalog.html" class="main-btn">Каталог</a>
+            <button class="main-btn">Кошик</button>
+        </section>
 
-<main>
-  <div class="products">
-    <div class="section">
-      <h2>🔁 Рекомендовані товари</h2>
-      <div class="grid">
-        <div class="product">Чохол iPhone 14<br><small>299 грн</small></div>
-        <div class="product">Зарядка Baseus 20Вт<br><small>649 грн</small></div>
-        <div class="product">Навушники TWS Pro<br><small>1199 грн</small></div>
-        <div class="product">Захисне скло 10H<br><small>159 грн</small></div>
-      </div>
-    </div>
+        <section class="recommended-section">
+            <h2>Рекомендовані товари</h2>
+            <div class="product-grid" id="recommended-products"></div>
+        </section>
 
-    <div class="section">
-      <h2>🆕 Нові товари</h2>
-      <div class="grid">
-        <div class="product">Захисне скло 9H<br><small>129 грн</small></div>
-        <div class="product">Навушники Xiaomi<br><small>999 грн</small></div>
-      </div>
-    </div>
-  </div>
+        <section class="new-products-section">
+            <h2>Нові товари</h2>
+            <div class="product-grid">
+                <div class="product-card" data-category="чохли">
+                    <img src="img/case.jpg" alt="Чохол A1">
+                    <h3>Чохол A1</h3>
+                </div>
+                <div class="product-card" data-category="навушники">
+                    <img src="img/headphones.jpg" alt="Навушники B2">
+                    <h3>Навушники B2</h3>
+                </div>
+                <div class="product-card" data-category="годинники">
+                    <img src="img/watch.jpg" alt="Годинник C3">
+                    <h3>Годинник C3</h3>
+                </div>
+                <div class="product-card" data-category="смартфони">
+                    <img src="img/phone.jpg" alt="Смартфон D4">
+                    <h3>Смартфон D4</h3>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <div class="filter-box">
-    <h3>🔍 Фільтр</h3>
-    <label>Категорія</label>
-    <select id="category" onchange="updateFilters()">
-      <option value="">Оберіть категорію</option>
-      <option value="case">Чохли</option>
-      <option value="charger">Зарядні пристрої</option>
-      <option value="headphones">Навушники</option>
-      <option value="glass">Захисне скло</option>
-    </select>
+    <footer class="site-footer">
+        <p>© 2025 GadgetHub. Всі права захищено.</p>
+    </footer>
 
-    <div id="filters-case" class="hidden">
-      <label>Колір</label>
-      <select>
-        <option>Чорний</option>
-        <option>Білий</option>
-        <option>Прозорий</option>
-      </select>
-      <label>Матеріал</label>
-      <select>
-        <option>Силікон</option>
-        <option>Шкіра</option>
-        <option>Пластик</option>
-      </select>
-      <label>Модель телефону</label>
-      <select>
-        <option>iPhone 13</option>
-        <option>Samsung S22</option>
-        <option>Xiaomi Redmi</option>
-      </select>
-    </div>
-
-    <div id="filters-charger" class="hidden">
-      <label>Колір</label>
-      <select>
-        <option>Чорний</option>
-        <option>Білий</option>
-        <option>Сірий</option>
-      </select>
-      <label>Потужність</label>
-      <select>
-        <option>5 Вт</option>
-        <option>10 Вт</option>
-        <option>20 Вт</option>
-      </select>
-      <label>Тип зарядки</label>
-      <select><option>USB-C</option><option>Бездротова</option></select>
-      <label>Швидка зарядка</label>
-      <select><option>Так</option><option>Ні</option></select>
-    </div>
-
-    <div id="filters-headphones" class="hidden">
-      <label>Тип</label>
-      <select>
-        <option>Вакуумні</option>
-        <option>Каплі</option>
-      </select>
-      <label>Колір</label>
-      <select>
-        <option>Чорний</option>
-        <option>Білий</option>
-      </select>
-      <label>Підтримка Bluetooth</label>
-      <select>
-        <option>Так</option>
-        <option>Ні</option>
-      </select>
-    </div>
-
-    <div id="filters-glass" class="hidden">
-      <label>Матеріал</label>
-      <select><option>Скло</option><option>Плівка</option></select>
-      <label>Міцність</label>
-      <select>
-        <option>9H</option>
-        <option>10H</option>
-        <option>12H</option>
-      </select>
-      <label>Поверхня</label>
-      <select><option>Глянець</option><option>Матовість</option></select>
-      <label>3D Touch</label>
-      <select><option>Підтримується</option><option>Не підтримується</option></select>
-    </div>
-
-    <button>Застосувати фільтр</button>
-  </div>
-</main>
-
-<footer>
-  &copy; 2025 GadgetHub. Усі права захищено.
-</footer>
-
-<script>
-function updateFilters() {
-  const selected = document.getElementById('category').value;
-  ['case', 'charger', 'headphones', 'glass'].forEach(type => {
-    document.getElementById('filters-' + type).classList.add('hidden');
-  });
-  if (selected) {
-    document.getElementById('filters-' + selected).classList.remove('hidden');
-  }
-}
-</script>
-
+    <script src="js/recommend.js"></script>
 </body>
 </html>
