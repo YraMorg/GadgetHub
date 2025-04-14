@@ -1,55 +1,51 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GadgetHub - Головна</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GadgetHub</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header class="site-header">
-        <div class="logo">GadgetHub</div>
-        <a href="register.html" class="register-link">Реєстрація</a>
-    </header>
+  <header>
+    <h1>GadgetHub</h1>
+    <nav>
+      <a href="#">Каталог</a>
+      <a href="#">Кошик</a>
+      <a href="#" class="register">Реєстрація</a>
+    </nav>
+  </header>
 
-    <main>
-        <section class="main-buttons">
-            <a href="catalog.html" class="main-btn">Каталог</a>
-            <button class="main-btn">Кошик</button>
-        </section>
+  <main>
+    <section>
+      <h2>Рекомендовані товари</h2>
+      <div id="recommended-products" class="product-grid"></div>
+    </section>
 
-        <section class="recommended-section">
-            <h2>Рекомендовані товари</h2>
-            <div class="product-grid" id="recommended-products"></div>
-        </section>
+    <section>
+      <h2>Нові товари</h2>
+      <div id="new-products" class="product-grid">
+        <div class="product" onclick="setCategory('Чохли')">
+          <img src="img/chohol-a1.jpg" alt="Чохол A1" />
+          <h3>Чохол A1</h3>
+        </div>
+        <div class="product" onclick="setCategory('Навушники')">
+          <img src="img/navushnyky-b2.jpg" alt="Навушники B2" />
+          <h3>Навушники B2</h3>
+        </div>
+        <div class="product" onclick="setCategory('Годинники')">
+          <img src="img/hodynnyk-c3.jpg" alt="Годинник C3" />
+          <h3>Годинник C3</h3>
+        </div>
+        <div class="product" onclick="setCategory('Смартфони')">
+          <img src="img/smartfon-d4.jpg" alt="Смартфон D4" />
+          <h3>Смартфон D4</h3>
+        </div>
+      </div>
+    </section>
+  </main>
 
-        <section class="new-products-section">
-            <h2>Нові товари</h2>
-            <div class="product-grid">
-                <div class="product-card" data-category="чохли">
-                    <img src="img/case.jpg" alt="Чохол A1">
-                    <h3>Чохол A1</h3>
-                </div>
-                <div class="product-card" data-category="навушники">
-                    <img src="img/headphones.jpg" alt="Навушники B2">
-                    <h3>Навушники B2</h3>
-                </div>
-                <div class="product-card" data-category="годинники">
-                    <img src="img/watch.jpg" alt="Годинник C3">
-                    <h3>Годинник C3</h3>
-                </div>
-                <div class="product-card" data-category="смартфони">
-                    <img src="img/phone.jpg" alt="Смартфон D4">
-                    <h3>Смартфон D4</h3>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <p>© 2025 GadgetHub. Всі права захищено.</p>
-    </footer>
-
-    <script src="js/recommend.js"></script>
+  <script src="js/recommend.js"></script>
 </body>
 </html>

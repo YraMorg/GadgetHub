@@ -1,45 +1,30 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const recommendedContainer = document.getElementById("recommended-products");
 
-    // Категорії товарів із картинками (можна підключити до бази)
-    const products = {
-        "чохли": [
-            { name: "Чохол X1", image: "img/case.jpg" },
-            { name: "Чохол Y2", image: "img/case.jpg" }
-        ],
-        "навушники": [
-            { name: "Навушники Z3", image: "img/headphones.jpg" },
-            { name: "Навушники L5", image: "img/headphones.jpg" }
-        ],
-        "годинники": [
-            { name: "Годинник Smart", image: "img/watch.jpg" },
-            { name: "Годинник Pro", image: "img/watch.jpg" }
-        ],
-        "смартфони": [
-            { name: "Смартфон E5", image: "img/phone.jpg" },
-            { name: "Смартфон F6", image: "img/phone.jpg" }
-        ]
-    };
+const allProducts = [
+  { name: "Чохол A2", category: "Чохли", image: "img/chohol-a1.jpg" },
+  { name: "Навушники B3", category: "Навушники", image: "img/navushnyky-b2.jpg" },
+  { name: "Годинник C4", category: "Годинники", image: "img/hodynnyk-c3.jpg" },
+  { name: "Смартфон D5", category: "Смартфони", image: "img/smartfon-d4.jpg" },
+];
 
-    // Отримуємо останню переглянуту категорію з localStorage
-    const lastCategory = localStorage.getItem("lastCategory") || "чохли";
-    const recommended = products[lastCategory] || [];
+function setCategory(category) {
+  localStorage.setItem("selectedCategory", category);
+  location.reload();
+}
 
-    recommended.forEach(product => {
-        const card = document.createElement("div");
-        card.className = "product-card";
-        card.innerHTML = `<img src="\${product.image}" alt="\${product.name}"><h3>\${product.name}</h3>`;
-        recommendedContainer.appendChild(card);
+function loadRecommended() {
+  const category = localStorage.getItem("selectedCategory");
+  const container = document.getElementById("recommended-products");
+  container.innerHTML = "";
+
+  if (category) {
+    const filtered = allProducts.filter(p => p.category === category);
+    filtered.forEach(product => {
+      const card = document.createElement("div");
+      card.className = "product";
+      card.innerHTML = \`<img src="\${product.image}" alt="\${product.name}"><h3>\${product.name}</h3>\`;
+      container.appendChild(card);
     });
+  }
+}
 
-    // Додаємо подію кліку на всі картки
-    document.querySelectorAll(".product-card").forEach(card => {
-        card.addEventListener("click", () => {
-            const category = card.getAttribute("data-category");
-            if (category) {
-                localStorage.setItem("lastCategory", category);
-                location.reload();
-            }
-        });
-    });
-});
+window.onload = loadRecommended;
