@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Каталог товарів – GadgetHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body { margin: 0; font-family: Arial, sans-serif; background: #f2f2f2; }
+    header {
+      background: #222; color: white; padding: 1em;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    nav { display: flex; gap: 30px; }
+    nav a { color: white; text-decoration: none; font-size: 1.4em; }
+    .container { padding: 2em; }
+    h2 { margin-bottom: 1em; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em; }
+    .product {
+      background: white; padding: 1em; border-radius: 8px;
+      text-align: center; box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    }
+    .product img { width: 100%; height: 160px; object-fit: cover; margin-bottom: 0.5em; }
+    .product a { text-decoration: none; color: black; font-weight: bold; display: block; margin-bottom: 0.3em; }
+    .product .price { font-size: 1.1em; color: #333; }
+    footer {
+      background: #eee;
+      padding: 1em;
+      text-align: center;
+      font-size: 0.9em;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>GadgetHub – Каталог</h1>
+  <nav>
+    <a href="index.html">Головна</a>
+    <a href="#">Кошик</a>
+  </nav>
+  <div><a href="#" style="color:white;text-decoration:none;">Реєстрація</a></div>
+</header>
+
+<div class="container">
+  <h2>Усі товари</h2>
+  <div class="grid">
+
+    <div class="product">
+      <img src="img/case1.jpg" alt="Чохол iPhone 13">
+      <a href="case1.html">Чохол iPhone 13</a>
+      <div class="price">249 грн</div>
+    </div>
+    
+    <div class="product">
+      <img src="img/case2.jpg" alt="Чохол Samsung S22">
+      <a href="case2.html">Чохол Samsung S22</a>
+      <div class="price">239 грн</div>
+    </div>
+    
+    <div class="product">
+      <img src="img/case3.webp" alt="Прозорий чохол Xiaomi">
+      <a href="case3.html">Прозорий чохол Xiaomi</a>
+      <div class="price">199 грн</div>
+    </div>
+
+    <div class="product">
+      <img src="img/charger1.webp" alt="Зарядка Baseus 20Вт">
+      <a href="charger1.html">Зарядка Baseus 20Вт</a>
+      <div class="price">649 грн</div>
+    </div>
+    
+    <div class="product">
+      <img src="img/charger2.webp" alt="Бездротова зарядка Joyroom">
+      <a href="charger2.html">Бездротова зарядка Joyroom</a>
+      <div class="price">599 грн</div>
+    </div>
+    
+    <div class="product">
+      <img src="img/charger3.jpg" alt="USB-C адаптер 25Вт">
+      <a href="charger3.html">USB-C адаптер 25Вт</a>
+      <div class="price">329 грн</div>
+    </div>
+    
+    <div class="product">
+      <img src="img/charger4.jpg" alt="Автозарядка з 2 USB">
+      <a href="charger4.html">Автозарядка з 2 USB</a>
+      <div class="price">189 грн</div>
+    </div>
+    
+    <div class="product">
+      <img src="img/headphones1.png" alt="Навушники TWS Pro">
+      <a href="headphones1.html">Навушники TWS Pro</a>
+      <div class="price">1199 грн</div>
+    </div>
+    
+    <div class="product">
+      <img src="img/headphones2.jpg" alt="Навушники Xiaomi Redmi Buds">
+      <a href="headphones2.html">Навушники Xiaomi Redmi Buds</a>
+      <div class="price">999 грн</div>
+    </div>
+    
+    <div class="product">
+      <img src="img/headphones3.webp" alt="Навушники Sony вакуумні">
+      <a href="headphones3.html">Навушники Sony вакуумні</a>
+      <div class="price">699 грн</div>
+    </div>
+    
+    <div class="product">
+      <img src="img/headphones4.webp" alt="Навушники каплі JBL">
+      <a href="headphones4.html">Навушники каплі JBL</a>
+      <div class="price">599 грн</div>
+    </div>
+    
+    <div class="product">
+      <img src="img/glass1.jpg" alt="Захисне скло iPhone 13">
+      <a href="glass1.html">Захисне скло iPhone 13</a>
+      <div class="price">129 грн</div>
+    </div>
+    
+    <div class="product">
+      <img src="img/glass2.webp" alt="Скло 10H матове Samsung">
+      <a href="glass2.html">Скло 10H матове Samsung</a>
+      <div class="price">149 грн</div>
+    </div>
+    
+    <div class="product">
+      <img src="img/glass3.jpg" alt="3D Touch скло Xiaomi">
+      <a href="glass3.html">3D Touch скло Xiaomi</a>
+      <div class="price">159 грн</div>
+    </div>
+    
+    <div class="product">
+      <img src="img/glass4.png" alt="Глянцеве скло 9H">
+      <a href="glass4.html">Глянцеве скло 9H</a>
+      <div class="price">109 грн</div>
+    </div>
+    
+  </div>
+</div>
+<footer>
+  &copy; 2025 GadgetHub. Усі права захищено.
+</footer>
+</body>
+</html>
