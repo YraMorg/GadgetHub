@@ -36,7 +36,7 @@
 <body>
 
 <header>
-  <h1>GadgetHub – Каталог</h1>
+  <h1><a href="index.html" style="color: white; text-decoration: none;">GadgetHub – Каталог</a></h1>
   <nav>
     <a href="index.html">Головна</a>
     <a href="#">Кошик</a>
@@ -143,21 +143,5 @@
 <footer>
   &copy; 2025 GadgetHub. Усі права захищено.
 </footer>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const productLinks = document.querySelectorAll(".product a");
-  productLinks.forEach(link => {
-    const text = link.textContent.toLowerCase();
-    link.addEventListener("click", () => {
-      if (text.includes("чохол")) localStorage.setItem("selectedCategory", "case");
-      else if (text.includes("заряд")) localStorage.setItem("selectedCategory", "charger");
-      else if (text.includes("наушн") || text.includes("навушн")) localStorage.setItem("selectedCategory", "headphones");
-      else if (text.includes("скло")) localStorage.setItem("selectedCategory", "glass");
-    });
-  });
-});
-</script>
 </body>
-
 </html>

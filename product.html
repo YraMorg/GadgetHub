@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Товар – GadgetHub</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2em; }
+    .product-card { max-width: 600px; margin: auto; border: 1px solid #ccc; padding: 2em; border-radius: 8px; background: #fdfdfd; }
+    .product-card img { width: 100%; border-radius: 6px; margin-bottom: 1em; }
+    h1 { text-align: center; }
+    .back { text-align: center; margin-top: 2em; }
+  </style>
+</head>
+<body>
+  <div class="product-card" id="productDetails"></div>
+  <div class="back"><a href="index.html">⬅ Назад на головну</a></div>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem("selectedProduct"));
+    const box = document.getElementById("productDetails");
+
+    if (data) {
+      box.innerHTML = `
+        <img src="\${data.image}" alt="\${data.name}">
+        <h2>\${data.name}</h2>
+        <p><strong>Ціна:</strong> \${data.price}</p>
+        <p>Опис товару скоро буде доступний 😉</p>
+      `;
+    } else {
+      box.innerHTML = "<p>Товар не знайдено. Поверніться на головну.</p>";
+    }
+  </script>
+</body>
+</html>

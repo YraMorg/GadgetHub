@@ -17,11 +17,14 @@
   </style>
 </head>
 <body>
-<header>
-  <h1>GadgetHub</h1>
-  <nav>
-    <a href="index.html">Головна</a>
-    <a href="catalog.html">Каталог</a>
+
+<header style="background: #222; color: white; padding: 1em; display: flex; justify-content: space-between; align-items: center;">
+  <a href="index.html" style="font-size: 2.5em; color: white; text-decoration: none;">GadgetHub</a>
+  
+  <nav style="margin-right: 30px;">
+    <a href="catalog.html" style="color: white; margin: 0 20px; font-size: 1.2em; text-decoration: none;">Каталог</a>
+    <a href="#" style="color: white; margin: 0 20px; font-size: 1.2em; text-decoration: none;">Кошик</a>
+    <a href="#" style="color: white; margin-left: 30px; text-decoration: none;">Реєстрація</a>
   </nav>
 </header>
 
@@ -31,14 +34,26 @@
 
   <h2>🆕 Нові товари</h2>
   <div class="grid">
-    <div class="product">Захисне скло 9H<br><small>129 грн</small></div>
-    <div class="product">Навушники Xiaomi<br><small>999 грн</small></div>
-    <div class="product">Чохол Samsung A52<br><small>349 грн</small></div>
-    <div class="product">Зарядка Anker 18Вт<br><small>849 грн</small></div>
+    <a href="case3.html" class="product" style="text-decoration: none; color: inherit;">
+      <img src="img/case3.webp" alt="Прозорий чохол Xiaomi" style="width:100%; height:150px; object-fit:cover; border-radius:6px; margin-bottom: 0.5em;">
+      Прозорий чохол Xiaomi<br><small>199 грн</small>
+    </a>
+    <a href="charger4.html" class="product" style="text-decoration: none; color: inherit;">
+      <img src="img/charger4.jpg" alt="Автозарядка з 2 USB" style="width:100%; height:150px; object-fit:cover; border-radius:6px; margin-bottom: 0.5em;">
+      Автозарядка з 2 USB<br><small>849 грн</small>
+    </a>
+    <a href="headphones4.html" class="product" style="text-decoration: none; color: inherit;">
+      <img src="img/headphones4.webp" alt="Навушники каплі JBL" style="width:100%; height:150px; object-fit:cover; border-radius:6px; margin-bottom: 0.5em;">
+      Навушники каплі JBL<br><small>1399 грн</small>
+    </a>
+    <a href="glass4.html" class="product" style="text-decoration: none; color: inherit;">
+      <img src="img/glass4.png" alt="Глянцеве скло 9H" style="width:100%; height:150px; object-fit:cover; border-radius:6px; margin-bottom: 0.5em;">
+      Глянцеве скло 9H<br><small>179 грн</small>
+    </a>
   </div>
 </main>
 
-<footer>
+<footer style='background:#eee; padding: 1em; text-align:center; margin-top: 2em;'>
   &copy; 2025 GadgetHub. Усі права захищено.
 </footer>
 
