@@ -2,74 +2,100 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Забезпечуємо мінімальну висоту */
 }
 
 .site-header {
+    background: #222;
+    color: white;
+    padding: 1em;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #222;
-    color: white;
-    padding: 1rem 2rem;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.register-link {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 2.5em;
 }
 
-.main-buttons {
-    text-align: center;
-    margin: 2rem 0;
-}
-
-.main-btn {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    margin: 0 1rem;
-    border: none;
-    background-color: #444;
+nav a {
     color: white;
-    border-radius: 8px;
-    cursor: pointer;
+    margin: 0 20px;
+    font-size: 1.2em;
     text-decoration: none;
+}
+
+nav a:hover {
+    color: #f8f8f8;
+}
+
+.container {
+    flex: 1; /* Це дозволяє контейнеру займати вільний простір */
+    padding: 2rem;
 }
 
 h2 {
-    text-align: center;
+    text-align: left; /* Вирівнюємо текст ліворуч */
     margin-top: 2rem;
+    margin-bottom: 1rem; /* Можна додати відступ знизу, щоб розділити контент */
 }
 
-.product-grid {
+.grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1.5rem;
     padding: 0 2rem 2rem;
+    grid-auto-rows: 1fr;
+}
+
+.product-card, .product {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
 }
 
 .product-card {
-    background-color: white;
     border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 1rem;
-    text-align: center;
 }
 
-.product-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
+.product {
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+
+.product img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    margin-bottom: 0.5em;
+}
+
+.product a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.3em;
+}
+
+.product .price {
+    font-size: 1.1em;
+    color: #333;
 }
 
 .site-footer {
     text-align: center;
     padding: 1rem;
-    background-color: #222;
+    background-color: #525252;
     color: white;
+    margin-top: auto; /* Залишає футер внизу */
 }
