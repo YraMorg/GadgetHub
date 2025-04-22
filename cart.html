@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Кошик – GadgetHub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #222;
+      color: white;
+      padding: 1em 2em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .container {
+      padding: 2em;
+    }
+
+    h2 {
+      margin-bottom: 1em;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1em;
+      background: white;
+      padding: 1em;
+      border-radius: 8px;
+      box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    }
+
+    .cart-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-right: 1em;
+      border-radius: 8px;
+    }
+
+    .cart-empty {
+      color: #777;
+    }
+
+    footer {
+      background: #eee;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" style="color:white;text-decoration:none;"><h1>GadgetHub</h1></a>
+    <a href="catalog.html" style="color:white;text-decoration:none;">← Назад до каталогу</a>
+  </header>
+
+  <div class="container">
+    <h2>Ваш кошик</h2>
+    <div id="cart-container">
+      <!-- Сюди будуть додаватись товари -->
+    </div>
+  </div>
+
+  <footer>&copy; 2025 GadgetHub. Усі права захищено.</footer>
+
+  <script>
+    const cartContainer = document.getElementById("cart-container");
+    const cartItems = JSON.parse(localStorage.getItem("CartLocalStorage")) || [];
+
+    if (cartItems.length === 0) {
+      cartContainer.innerHTML = '<p class="cart-empty">Ваш кошик порожній.</p>';
+    } else {
+      cartItems.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <div>
+            <h3>${item.name}</h3>
+            <p><strong>Ціна:</strong> ${item.price}</p>
+          </div>
+        `;
+        cartContainer.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>
