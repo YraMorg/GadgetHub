@@ -4,7 +4,7 @@ function loadCart() {
   const cartItems = JSON.parse(localStorage.getItem("CartLocalStorage")) || [];
   const container = document.getElementById("cart-container");
   const totalPriceElement = document.getElementById("totalPrice");
-  container.innerHTML = "";
+  container.innerHTML = ""; 
 
   if (cartItems.length === 0) {
     container.innerHTML = "<p class='cart-empty'>Кошик порожній.</p>";
@@ -34,11 +34,19 @@ function loadCart() {
   });
 
   totalPriceElement.textContent = `Загальна сума: ${total} грн`;
+
+  const clearCartBtn = document.getElementById("clearCartBtn");
+  clearCartBtn.addEventListener("click", clearCart);
 }
 
 function removeFromCart(index) {
   let cartItems = JSON.parse(localStorage.getItem("CartLocalStorage")) || [];
   cartItems.splice(index, 1);
   localStorage.setItem("CartLocalStorage", JSON.stringify(cartItems));
-  loadCart(); // перезавантажити список
+  loadCart();
+}
+
+function clearCart() {
+  localStorage.removeItem("CartLocalStorage");
+  loadCart();
 }
