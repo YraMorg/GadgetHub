@@ -12,8 +12,9 @@
   <a href="index.html" class="logo">GadgetHub</a>
   <nav>
     <a href="catalog.html">Каталог</a>
-    <a href="cart.html">Кошик</a>
-    <a href="auth.html">Реєстрація</a>
+    <a href="cart.html" id="cartLink" style="display: none;">Кошик</a>
+    <a href="auth.html" id="registerLink">Реєстрація</a>
+    <button id="logoutBtn" style="display: none; background: none; border: none; color: white; font-size: 1.2em; cursor: pointer; margin: 0 20px;">Вийти</button>
   </nav>
 </header>
 
@@ -214,6 +215,7 @@
     });
   });
 </script>
-
+  
+<script type="module" src="js/auth-state.js"></script>
 </body>
 </html>
