@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Реєстрація – GadgetHub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background: white;
+      padding: 2em;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1em;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #222;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    #message {
+      margin-top: 1em;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Реєстрація</h2>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Пароль" required>
+    <button onclick="register()">Зареєструватися</button>
+    <p id="message"></p>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+
+  <script>
+    // 🔥 1. Налаштування Firebase — заміни на свої
+    const firebaseConfig = {
+      apiKey: "AIzaSyBbv17e9KU79WSjkODDU0Hi_b9g2_vzPrk",
+      authDomain: "gadgethub-44258.firebaseapp.com",
+      projectId: "gadgethub-44258",
+      storageBucket: "gadgethub-44258.firebasestorage.app",
+      messagingSenderId: "231922939477",
+      appId: "1:231922939477:web:01f9436b11c2ff2a9b86dc"
+    };
+
+    // Ініціалізація Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // 🔐 Функція реєстрації
+    function register() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const message = document.getElementById("message");
+
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          message.textContent = "Успішно зареєстровано!";
+          message.style.color = "green";
+          console.log("Зареєстровано:", user.email);
+        })
+        .catch((error) => {
+          console.error(error);
+          message.textContent = error.message;
+          message.style.color = "red";
+        });
+    }
+  </script>
+</body>
+</html>
