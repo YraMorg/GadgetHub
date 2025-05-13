@@ -23,49 +23,25 @@ const startNowBtn = document.getElementById("startNowBtn");
 onAuthStateChanged(auth, (user) => {
   console.log("Стан авторизації:", user); // Для перевірки
   
+  import { auth, onAuthStateChanged, signOut } from './firebase.js';
+
+const registerLink = document.getElementById("registerLink");
+const logoutBtn = document.getElementById("logoutBtn");
+
+onAuthStateChanged(auth, (user) => {
   if (user) {
-    if (loginLink) loginLink.style.display = "none";
-    if (registerLink) registerLink.style.display = "none";
-    if (dashboardLink) dashboardLink.style.display = "inline-block";
-    if (logoutBtn) logoutBtn.style.display = "inline-block";
-
-     // ✅ Якщо авторизований — оновлюємо кнопку
-    if (startNowBtn) {
-      startNowBtn.textContent = "Знайти місця";
-      startNowBtn.onclick = () => {
-        window.location.href = "search.html";
-      };
-    }
+    // Якщо користувач авторизований
+    registerLink.style.display = "none";
+    logoutBtn.style.display = "inline";
   } else {
-    if (loginLink) loginLink.style.display = "inline-block";
-    if (registerLink) registerLink.style.display = "inline-block";
-    if (dashboardLink) dashboardLink.style.display = "none";
-    if (logoutBtn) logoutBtn.style.display = "none";
-
-    // 🔁 Якщо неавторизований — повертаємо стандартний текст
-    if (startNowBtn) {
-      startNowBtn.textContent = "Почати зараз";
-      startNowBtn.onclick = () => {
-        window.location.href = "auth.html";
-      };
-    }
+    // Якщо користувач не авторизований
+    registerLink.style.display = "inline";
+    logoutBtn.style.display = "none";
   }
 });
 
-// Вихід
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", () => {
-    signOut(auth).then(() => {
-      location.reload();
-    });
+logoutBtn.addEventListener("click", () => {
+  signOut(auth).then(() => {
+    location.reload(); // Оновити сторінку після виходу
   });
-}
-
-// Кнопка "Увійти / Реєстрація"
-const authBtn = document.getElementById("authBtn");
-
-if (authBtn) {
-  authBtn.addEventListener("click", () => {
-    window.location.href = "auth.html";
-  });
-}
+});
