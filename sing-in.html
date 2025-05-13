@@ -74,23 +74,17 @@
   </style>
 </head>
 <body>
-  <div class="register-container">
+  <div class="signup-container">
     <h2>Реєстрація</h2>
     <div id="register-error" class="error"></div>
-    <input type="email" id="register-email" placeholder="Email" />
-    <input type="password" id="register-password" placeholder="Пароль" />
+    <input type="email" id="register-email" placeholder="Email">
+    <input type="password" id="register-password" placeholder="Пароль">
     <button onclick="registerUser()">Зареєструватися</button>
-
     <div class="link">
-      Вже є акаунт? <a href="login.html">Увійти</a>
+      Уже маєш обліковий запис? <a href="login.html">Увійти</a>
     </div>
   </div>
 
-  <!-- Підключення скриптів -->
-  <script type="module" src="auth.js"></script>
-  <script type="module">
-    import { registerUser } from './auth.js';
-    window.registerUser = registerUser; // робимо глобально доступним
-  </script>
+  <script type="module" src="js/register.js"></script>
 </body>
 </html>
