@@ -86,6 +86,11 @@
         <p><strong>Модель:</strong> Samsung S22</p>
       </div>
       <p>Комфорт і преміум-дизайн.</p>
+
+     <!-- 🔘 Кнопка додавання -->
+      <button class="add-to-cart-btn" onclick="addToCart()">Додати до кошика</button>
+    </div>
+
     </div>
     <div class="similar">
       <h3>Схожі товари</h3>
@@ -98,5 +103,20 @@
     </div>
   </div>
   <footer>&copy; 2025 GadgetHub. Усі права захищено.</footer>
+
+  <!-- 🔧 Скрипт для додавання до кошика -->
+  <script>
+    function addToCart() {
+      const item = {
+        name: "Чохол Samsung S22",
+        price: "239 грн",
+        image: "img/case2.jpg"
+      };
+
+      let cart = JSON.parse(localStorage.getItem("CartLocalStorage")) || [];
+      cart.push(item);
+      localStorage.setItem("CartLocalStorage", JSON.stringify(cart));
+      alert("Товар додано до кошика!");
+    }
 </body>
 </html>
