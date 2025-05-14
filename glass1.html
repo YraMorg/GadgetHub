@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Захисне скло iPhone 13 – GadgetHub</title>
   <style>
-    body {
+  body {
       font-family: Arial, sans-serif;
       background: #f2f2f2;
       margin: 0;
@@ -59,6 +59,21 @@
       box-shadow: 0 0 2px rgba(0,0,0,0.1);
     }
 
+    .add-to-cart-btn {
+      margin-top: 1em;
+      padding: 0.5em 1em;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    .add-to-cart-btn:hover {
+      background: #0056b3;
+    }
+
     footer {
       background: #eee;
       text-align: center;
@@ -86,6 +101,11 @@
         <p><strong>Поверхня:</strong> Глянець</p>
       </div>
       <p>Захищає екран від подряпин.</p>
+
+     <!-- 🔘 Кнопка додавання -->
+      <button class="add-to-cart-btn" onclick="addToCart()">Додати до кошика</button>
+    </div>
+
     </div>
     <div class="similar">
       <h3>Схожі товари</h3>
@@ -101,5 +121,21 @@
     </div>
   </div>
   <footer>&copy; 2025 GadgetHub. Усі права захищено.</footer>
+
+ <!-- 🔧 Скрипт для додавання до кошика -->
+  <script>
+    function addToCart() {
+      const item = {
+        name: "Захисне скло iPhone 13",
+        price: "129 грн",
+        image: "img/glass1.jpg"
+      };
+
+      let cart = JSON.parse(localStorage.getItem("CartLocalStorage")) || [];
+      cart.push(item);
+      localStorage.setItem("CartLocalStorage", JSON.stringify(cart));
+      alert("Товар додано до кошика!");
+    }
+  <script>
 </body>
 </html>
