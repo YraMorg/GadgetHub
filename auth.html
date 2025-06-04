@@ -2,109 +2,113 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
-  <title>Авторизація | CoworklySpace</title>
+  <title>Авторизація – GadgetHub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-<style>
-  body {
-    font-family: 'Roboto', sans-serif;
-    background: #f0f0f0; /* Світло-сірий фон */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-  .container {
-    background: #ffffff;
-    padding: 40px 30px 80px; /* Додано простір знизу */
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 420px;
-    position: relative;
-  }
+    .container {
+      background: #ffffff;
+      padding: 40px 30px 80px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+    }
 
-  h2 {
-    text-align: center;
-    margin-bottom: 24px;
-    color: #333;
-  }
+    h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #1f2937;
+    }
 
-  input {
-    width: 100%;
-    padding: 14px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    background: #fafafa;
-  }
+    input {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      background: #fafafa;
+    }
 
-  input:focus {
-    border-color: #888;
-    outline: none;
-  }
+    input:focus {
+      border-color: #60a5fa;
+      outline: none;
+    }
 
-  button.auth-btn {
-    width: 100%;
-    padding: 14px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    margin-top: 10px;
-  }
+    button.auth-btn {
+      width: 100%;
+      padding: 14px;
+      background-color: #1f2937;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 10px;
+    }
 
-  button.auth-btn:hover {
-    background-color: #555;
-  }
+    button.auth-btn:hover {
+      background-color: #374151;
+    }
 
-  .tabs {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    bottom: 20px;
-    left: 30px;
-    right: 30px;
-  }
+    .tabs {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      bottom: 20px;
+      left: 30px;
+      right: 30px;
+    }
 
-  .tabs button {
-    width: 48%;
-    background: #e0e0e0;
-    color: #333;
-    border: 1px solid #bbb;
-    border-radius: 8px;
-    padding: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
+    .tabs button {
+      width: 48%;
+      background: #e5e7eb;
+      color: #1f2937;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      padding: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-  .tabs button:hover,
-  .tabs button.active {
-    background: #333;
-    color: #fff;
-  }
+    .tabs button:hover {
+      background: #d1d5db;
+    }
 
-  .message {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 0.95rem;
-    color: green;
-  }
-</style>
+    .tabs button.active {
+      background: #1f2937;
+      color: white;
+      border-color: #1f2937;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <div class="tabs">
-      <button onclick="showForm('login')">Вхід</button>
-      <button onclick="showForm('register')">Реєстрація</button>
+      <button id="login-tab" onclick="showForm('login')">Вхід</button>
+      <button id="register-tab" onclick="showForm('register')">Реєстрація</button>
     </div>
 
     <div id="login-form">
@@ -128,6 +132,8 @@
     import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from './js/firebase.js';
 
     const messageEl = document.getElementById("auth-message");
+    const loginTab = document.getElementById("login-tab");
+    const registerTab = document.getElementById("register-tab");
 
     window.register = async () => {
       const email = document.getElementById("register-email").value;
@@ -135,6 +141,7 @@
       try {
         await createUserWithEmailAndPassword(auth, email, password);
         messageEl.textContent = "Реєстрація успішна! Перенаправляємо...";
+        messageEl.style.color = "green";
         setTimeout(() => window.location.href = "index.html", 1500);
       } catch (error) {
         messageEl.textContent = error.message;
@@ -148,6 +155,7 @@
       try {
         await signInWithEmailAndPassword(auth, email, password);
         messageEl.textContent = "Вхід успішний! Перенаправляємо...";
+        messageEl.style.color = "green";
         setTimeout(() => window.location.href = "index.html", 1500);
       } catch (error) {
         messageEl.textContent = error.message;
@@ -156,10 +164,26 @@
     };
 
     window.showForm = (type) => {
-      document.getElementById("login-form").style.display = type === 'login' ? 'block' : 'none';
-      document.getElementById("register-form").style.display = type === 'register' ? 'block' : 'none';
+      const loginForm = document.getElementById("login-form");
+      const registerForm = document.getElementById("register-form");
+
+      if (type === 'login') {
+        loginForm.style.display = 'block';
+        registerForm.style.display = 'none';
+        loginTab.classList.add('active');
+        registerTab.classList.remove('active');
+      } else {
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'block';
+        loginTab.classList.remove('active');
+        registerTab.classList.add('active');
+      }
+
       messageEl.textContent = "";
     };
+
+    // Встановлюємо форму за замовчуванням
+    showForm('login');
   </script>
 </body>
 </html>
