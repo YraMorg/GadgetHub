@@ -270,14 +270,14 @@
     { name: "Чохол iPhone 13", category: "case", material: "силікон", color: "чорний", model: "iPhone 13" },
     { name: "Чохол Samsung S22", category: "case", material: "шкіра", color: "синій", model: "Samsung S22" },
     { name: "Прозорий чохол Xiaomi", category: "case", material: "пластик", color: "прозорий", model: "Xiaomi" },
-    { name: "Зарядка Baseus 20Вт", category: "charger", power: "20Вт", type: "дротова", brand: "Baseus" },
-    { name: "Бездротова зарядка Joyroom", category: "charger", power: "15Вт", type: "бездротова", brand: "Joyroom" },
-    { name: "USB-C адаптер 25Вт", category: "charger", power: "25Вт", type: "дротова", brand: "Samsung" },
-    { name: "Автозарядка з 2 USB", category: "charger", power: "18Вт", type: "автозарядка", brand: "Anker" },
-    { name: "Навушники TWS Pro", category: "headphones", type: "вкладиші", brand: "TWS" },
-    { name: "Навушники Xiaomi Redmi Buds", category: "headphones", type: "вкладиші", brand: "Xiaomi" },
-    { name: "Навушники Sony вакуумні", category: "headphones", type: "вакуумні", brand: "Sony" },
-    { name: "Навушники каплі JBL", category: "headphones", type: "вкладиші", brand: "JBL" },
+    { name: "Зарядка Baseus 20Вт", category: "charger", power: "20Вт", type: "дротова", model: "Baseus" },
+    { name: "Бездротова зарядка Joyroom", category: "charger", power: "15Вт", type: "бездротова", model: "Joyroom" },
+    { name: "USB-C адаптер 25Вт", category: "charger", power: "25Вт", type: "дротова", model: "Samsung" },
+    { name: "Автозарядка з 2 USB", category: "charger", power: "18Вт", type: "автозарядка", model: "Anker" },
+    { name: "Навушники TWS Pro", category: "headphones", type: "вкладиші", model: "TWS" },
+    { name: "Навушники Xiaomi Redmi Buds", category: "headphones", type: "вкладиші", model: "Xiaomi" },
+    { name: "Навушники Sony вакуумні", category: "headphones", type: "вакуумні", model: "Sony" },
+    { name: "Навушники каплі JBL", category: "headphones", type: "вкладиші", model: "JBL" },
     { name: "Захисне скло iPhone 13", category: "glass", hardness: "9H", model: "iPhone 13", coating: "олеофобне" },
     { name: "Скло 10H матове Samsung", category: "glass", hardness: "10H", model: "Samsung", coating: "матове" },
     { name: "3D Touch скло Xiaomi", category: "glass", hardness: "9H", model: "Xiaomi", coating: "3D Touch" },
@@ -286,8 +286,8 @@
 
   const filtersByCategory = {
     case: ["material", "color", "model"],
-    charger: ["power", "type", "brand"],
-    headphones: ["type", "brand"],
+    charger: ["power", "type", "model"],
+    headphones: ["type", "model"],
     glass: ["hardness", "model", "coating"]
   };
 

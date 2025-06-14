@@ -42,7 +42,7 @@ const products = [
     characteristics: {
       type: "Дротова",
       power: "20W",
-      brand: "Baseus"
+      model: "Baseus"
     }
   },
   {
@@ -53,7 +53,7 @@ const products = [
     characteristics: {
       type: "Бездротова",
       power: "15W",
-      brand: "Joyroom"
+      model: "Joyroom"
     }
   },
   {
@@ -64,7 +64,7 @@ const products = [
     characteristics: {
       type: "Дротова",
       power: "25W",
-      brand: "Samsung"
+      model: "Samsung"
     }
   },
   {
@@ -75,7 +75,7 @@ const products = [
     characteristics: {
       type: "Автозарядка",
       power: "18W",
-      brand: "Anker"
+      model: "Anker"
     }
   },
   {
@@ -85,7 +85,7 @@ const products = [
     category: "charger",
     characteristics: {
       type: "Вкладиші",
-      brand: "TWS"
+      model: "TWS"
     }
   },
   {
@@ -95,7 +95,7 @@ const products = [
     category: "headphones",
     characteristics: {
       type: "Вкладиші",
-      brand: "Xiaomi"
+      model: "Xiaomi"
     }
   },
   {
@@ -105,7 +105,7 @@ const products = [
     category: "headphones",
     characteristics: {
       type: "Вакуумні",
-      brand: "Sony"
+      model: "Sony"
     }
   },
   {
@@ -115,7 +115,7 @@ const products = [
     category: "headphones",
     characteristics: {
       type: "Вкладиші",
-      brand: "JBL"
+      model: "JBL"
     }
   },
   {

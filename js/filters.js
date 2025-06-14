@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
             category: "Зарядки",
             power: "15W",
             type: "Бездротова",
-            brand: "Samsung"
+            model: "Samsung"
         },
         {
             id: "glass1",
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const filtersByCategory = {
         "Чохли": ["material", "color", "model"],
-        "Зарядки": ["power", "type", "brand"],
+        "Зарядки": ["power", "type", "model"],
         "Скло": ["hardness", "model", "coating"]
     };
 

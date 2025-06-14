@@ -1,53 +1,60 @@
-// Функція для побудови векторів з характеристик
-function buildVector(characteristics) {
-  const vector = [];
+// Обчислення схожості з вагами
+function weightedSimilarity(charA, charB) {
+  const weights = {
+    model: 3,
+    type: 1,
+    color: 1,
+    material: 1,
+    power: 1,
+    coating: 1,
+    hardness: 1
+  };
 
-  for (const key in characteristics) {
-    const value = characteristics[key];
-    vector.push(String(key) + ':' + String(value).toLowerCase());
+  let score = 0;
+  let maxScore = 0;
+
+  for (const key in weights) {
+    const weight = weights[key];
+    maxScore += weight;
+
+    if (
+      charA[key] &&
+      charB[key] &&
+      charA[key].toLowerCase() === charB[key].toLowerCase()
+    ) {
+      score += weight;
+    }
   }
 
-  return vector;
+  return score / maxScore;
 }
 
-// Функція для підрахунку косинусної схожості
-function cosineSimilarity(vecA, vecB) {
-  const setA = new Set(vecA);
-  const setB = new Set(vecB);
-
-  const intersection = [...setA].filter(x => setB.has(x));
-  const similarity = intersection.length / Math.sqrt(setA.size * setB.size);
-
-  return similarity;
-}
-
-// Отримуємо вибраний товар з localStorage
+// Отримання збереженого товару з localStorage
 const selectedProductId = localStorage.getItem("selectedProductId");
-const selectedProduct = products.find(p => p.id === selectedProductId);
+const selectedProduct = products.find((p) => p.id === selectedProductId);
 
-// Пошук рекомендацій
 if (selectedProduct) {
-  const selectedVector = buildVector(selectedProduct.characteristics);
-
   const similarProducts = products
-    .filter(p => p.id !== selectedProduct.id && p.category === selectedProduct.category)
-    .map(p => {
+    .filter((p) => p.id !== selectedProduct.id)
+    .map((p) => {
       return {
         ...p,
-        similarity: cosineSimilarity(selectedVector, buildVector(p.characteristics))
+        similarity: weightedSimilarity(
+          selectedProduct.characteristics,
+          p.characteristics
+        )
       };
     })
     .sort((a, b) => b.similarity - a.similarity)
-    .slice(0, 4); // Виводимо 4 найсхожіших
+    .slice(0, 4);
 
-  // Вивід на сторінку
   const container = document.getElementById("recommendations");
   container.innerHTML = "";
 
-  similarProducts.forEach(p => {
+  similarProducts.forEach((p) => {
     const productEl = document.createElement("a");
+    productEl.href = `${p.id}.html`;
     productEl.className = "product";
-    productEl.href = `${p.id}.html`; // Перехід на сторінку товару
 
     productEl.innerHTML = `
       <img src="${p.image}" alt="${p.name}">
