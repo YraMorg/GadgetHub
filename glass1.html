@@ -2,7 +2,7 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
-  <title>Автозарядка з 2 USB – GadgetHub</title>
+  <title>Захисне скло iPhone 13</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
@@ -124,25 +124,25 @@
 
   <div class="container">
     <div class="card">
-      <img src="img/charger4.jpg" alt="Автозарядка з 2 USB" />
+      <img src="img/glass1.jpg" alt="Захисне скло iPhone 13">
       <div class="card-content">
-        <h2>Автозарядка з 2 USB</h2>
+        <h2>Захисне скло iPhone 13</h2>
         <div class="filters">
-          <p><strong>Колір:</strong> Чорний</p>
-          <p><strong>Потужність:</strong> 18Вт</p>
-          <p><strong>Тип зарядки:</strong> Авто</p>
+          <p><strong>Матеріал:</strong> Скло</p>
+          <p><strong>Міцність:</strong> 9H</p>
+          <p><strong>Поверхня:</strong> Олеофобне</p>
         </div>
-        <p>Ідеально для поїздок. Заряджайте два пристрої одночасно в авто.</p>
-        <div class="price">189 грн</div>
+        <p>Жоский вайб.</p>
+        <div class="price">129 грн</div>
         <button class="add-to-cart-btn" onclick="addToCart()">Додати до кошика</button>
       </div>
     </div>
 
     <div class="similar">
       <h3>Схожі товари</h3>
-      <div class="product"><a href="charger1.html">Зарядка Baseus 20Вт</a></div>
-      <div class="product"><a href="charger2.html">Бездротова зарядка Joyroom</a></div>
-      <div class="product"><a href="charger3.html">USB-C адаптер 25Вт</a></div>
+      <div class="product"><a href="glass2.html">Скло 10H матове Samsung</a></div>
+      <div class="product"><a href="glass3.html">3D Touch скло Xiaomi</a></div>
+      <div class="product"><a href="glass4.html">Глянцеве скло 9H</a></div>
     </div>
   </div>
 
@@ -153,15 +153,16 @@
   <script>
     function addToCart() {
       const item = {
-        name: "Автозарядка з 2 USB",
-        price: "189 грн",
-        image: "img/charger4.jpg"
+        name: "Захисне скло iPhone 13",
+        price: "129 грн",
+        image: "img/glass1.jpg"
       };
       let cart = JSON.parse(localStorage.getItem("CartLocalStorage")) || [];
       cart.push(item);
       localStorage.setItem("CartLocalStorage", JSON.stringify(cart));
       alert("Товар додано до кошика!");
     }
+    localStorage.setItem("selectedProductId", "glass1");
   </script>
 </body>
 </html>

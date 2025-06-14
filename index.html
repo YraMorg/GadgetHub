@@ -78,14 +78,6 @@
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     }
 
-    .product img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 0.5em;
-    }
-
     .product small {
       display: block;
       margin-top: 0.3em;
@@ -100,6 +92,22 @@
       padding: 1em;
       margin-top: auto;
     }
+
+    #recommendations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+
   </style>
 </head>
 <body>
@@ -116,7 +124,7 @@
 
   <main>
     <h2>🔁 Рекомендовані товари</h2>
-    <div id="recommended" class="grid"></div>
+    <div id="recommendations" class="recommendation-block"></div>
 
     <h2>🆕 Нові товари</h2>
     <div class="grid">
@@ -146,7 +154,7 @@
   <footer>
     &copy; 2025 GadgetHub. Усі права захищено.
   </footer>
-
+  <script src="js/products.js"></script>
   <script src="js/recommend.js"></script>
   <script type="module" src="js/index-auth.js"></script>
 </body>
