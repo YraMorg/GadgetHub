@@ -1,7 +1,6 @@
-// Обчислення схожості з вагами
 function weightedSimilarity(charA, charB) {
   const weights = {
-    model: 3,
+    model: 2,
     type: 1,
     color: 1,
     material: 1,
@@ -28,6 +27,7 @@ function weightedSimilarity(charA, charB) {
 
   return score / maxScore;
 }
+
 
 // Отримання збереженого товару з localStorage
 const selectedProductId = localStorage.getItem("selectedProductId");
