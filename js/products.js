@@ -6,7 +6,6 @@ const products = [
     name: "Чохол iPhone 13",
     image: "img/case1.jpg",
     category: "case",
-    prise: 249,
     characteristics: {
       color: "чорний",
       material: "силікон",
@@ -18,7 +17,6 @@ const products = [
     name: "Чохол Samsung S22",
     image: "img/case2.jpg",
     category: "case",
-        prise: 239,
     characteristics: {
       color: "синій",
       material: "шкіра",
@@ -30,7 +28,6 @@ const products = [
     name: "Прозорий чохол Xiaomi",
     image: "img/case3.webp",
     category: "case",
-    prise: 199,
     characteristics: {
       color: "прозорий",
       material: "пластик",
@@ -42,7 +39,6 @@ const products = [
     name: "Зарядка Baseus 20Вт",
     image: "img/charger1.webp",
     category: "charger",
-    prise: 649,
     characteristics: {
       type: "Дротова",
       power: "20W",
@@ -54,7 +50,6 @@ const products = [
     name: "Бездротова зарядка Joyroom",
     image: "img/charger2.webp",
     category: "charger",
-    prise: 599,
     characteristics: {
       type: "Бездротова",
       power: "15W",
@@ -66,7 +61,6 @@ const products = [
     name: "USB-C адаптер 25Вт",
     image: "img/charger3.jpg",
     category: "charger",
-    prise: 329,
     characteristics: {
       type: "Дротова",
       power: "25W",
@@ -78,7 +72,6 @@ const products = [
     name: "Автозарядка з 2 USB",
     image: "img/charger4.jpg",
     category: "charger",
-    prise: 189,
     characteristics: {
       type: "Автозарядка",
       power: "18W",
@@ -90,7 +83,6 @@ const products = [
     name: "Навушники TWS Pro",
     image: "img/headphones1.png",
     category: "charger",
-    prise: 1199,
     characteristics: {
       type: "Вкладиші",
       model: "TWS"
@@ -101,7 +93,6 @@ const products = [
     name: "Навушники Xiaomi Redmi Buds",
     image: "img/headphones2.jpg",
     category: "headphones",
-    prise: 999,
     characteristics: {
       type: "Вкладиші",
       model: "Xiaomi"
@@ -112,7 +103,6 @@ const products = [
     name: "Навушники Sony вакуумні",
     image: "img/headphones3.webp",
     category: "headphones",
-    prise: 699,
     characteristics: {
       type: "Вакуумні",
       model: "Sony"
@@ -123,7 +113,6 @@ const products = [
     name: "Навушники каплі JBL",
     image: "img/headphones4.webp",
     category: "headphones",
-    prise: 599,
     characteristics: {
       type: "Вкладиші",
       model: "JBL"
@@ -134,7 +123,6 @@ const products = [
     name: "Захисне скло iPhone 13",
     image: "img/glass1.jpg",
     category: "glass",
-    prise: 129,
     characteristics: {
       hardness: "9H",
       model: "iPhone13",
@@ -146,7 +134,6 @@ const products = [
     name: "Скло 10H матове Samsung",
     image: "img/glass2.webp",
     category: "glass",
-    prise: 149,
     characteristics: {
       hardness: "10H",
       model: "Samsung",
@@ -158,7 +145,6 @@ const products = [
     name: "3D Touch скло Xiaomi",
     image: "img/glass3.jpg",
     category: "glass",
-    prise: 159,
     characteristics: {
       hardness: "9H",
       model: "Xiaomi",
@@ -170,7 +156,6 @@ const products = [
     name: "Глянцеве скло 9H",
     image: "img/glass4.png",
     category: "glass",
-    prise: 109,
     characteristics: {
       hardness: "9H",
       model: "універсальне",
