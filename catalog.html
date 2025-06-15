@@ -152,6 +152,7 @@
 <div class="main-content">
   <aside class="filters">
     <h3>Фільтр товарів</h3>
+
     <div class="filter-group">
       <label for="categoryFilter">Категорія:</label>
       <select id="categoryFilter">
@@ -315,7 +316,7 @@
         .filter(p => p.category === category)
         .map(p => p[filter])
       )];
-      select.innerHTML = <option value="">--</option> + values.map(v => <option value="${v}">${v}</option>).join("");
+      select.innerHTML = `<option value="">--</option>` + values.map(v => `<option value="${v}">${v}</option>`).join("");
       label.appendChild(select);
       additionalFilters.appendChild(label);
     });
