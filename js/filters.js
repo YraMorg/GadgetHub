@@ -30,12 +30,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const categorySelect = document.getElementById("categoryFilter");
     const filterContainer = document.getElementById("additionalFilters");
     const productList = document.getElementById("productList");
+    const priceRange = document.getElementById("priceRange");
+    const priceValue = document.getElementById("priceValue");
+
 
     const filtersByCategory = {
         "Чохли": ["material", "color", "model"],
         "Зарядки": ["power", "type", "model"],
         "Скло": ["hardness", "model", "coating"]
     };
+
+    priceRange.addEventListener("input", () => {
+  priceValue.textContent = priceRange.value;
+  applyFilters(); // головна функція фільтрації
+});
 
     function updateFilters(category) {
         filterContainer.innerHTML = "";
@@ -52,15 +60,46 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    function applyFilters() {
-        const category = categorySelect.value;
-        const inputs = filterContainer.querySelectorAll("input");
-        const criteria = {};
-        inputs.forEach(input => {
-            if (input.value.trim() !== "") {
-                criteria[input.dataset.filterKey] = input.value.trim().toLowerCase();
-            }
-        });
+function applyFilters() {
+  const category = getSelectedCategory(); // твоя функція вибору категорії
+  const filters = getSelectedFilters();   // твоя функція вибору інших фільтрів
+
+  const productElements = document.querySelectorAll(".product-card");
+  const maxPrice = parseInt(priceRange.value);
+
+  productElements.forEach((element) => {
+    const product = JSON.parse(element.dataset.product); // якщо зберігаєш JSON в data-атрибуті
+    const price = parseInt(element.querySelector(".price").textContent);
+
+    const matchCategory = product.category === category;
+    const matchFilters = Object.entries(filters).every(([key, value]) =>
+    product.characteristics[key]?.toLowerCase().includes(value)
+);
+    const matchPrice = price <= maxPrice;
+
+    element.style.display = matchCategory && matchFilters && matchPrice ? "block" : "none";
+  });
+}
+
+function renderProducts(filteredProducts) {
+  productList.innerHTML = "";
+
+  filteredProducts.forEach(p => {
+    const div = document.createElement("div");
+    div.classList.add("product-card");
+    div.dataset.product = JSON.stringify(p);
+
+    div.innerHTML = `
+      <img src="${p.image}" alt="${p.name}" />
+      <h3>${p.name}</h3>
+      <p>Ціна: <span class="price">${p.price}</span> грн</p>
+    `;
+
+    productList.appendChild(div);
+  });
+}
+
+
 
         productList.innerHTML = "";
 
