@@ -135,6 +135,11 @@
       padding: 1em;
       margin-top: auto;
     }
+
+    input[type="range"] {
+  width: 100%;
+    }
+
   </style>
 </head>
 <body>
@@ -163,6 +168,12 @@
         <option value="glass">Скло</option>
       </select>
     </div>
+
+    <div class="filter-group">
+  <label for="priceRange">Ціна (до <span id="priceValue">1200</span> грн):</label>
+  <input type="range" id="priceRange" min="0" max="1200" step="10" value="1200">
+</div>
+
 
     <div id="additionalFilters"></div>
   </aside>
