@@ -169,13 +169,12 @@
       </select>
     </div>
 
-    <div class="filter-group">
-  <label for="priceRange">Ціна (до <span id="priceValue">1200</span> грн):</label>
-  <input type="range" id="priceRange" min="0" max="1200" step="10" value="1200">
-</div>
+<div id="additionalFilters"></div>
 
+<input type="range" id="priceRange" min="0" max="1200" step="10" />
+<span id="priceValue">1200</span>
 
-    <div id="additionalFilters"></div>
+<div id="productList"></div>
   </aside>
 
   <div class="product-grid" id="productGrid">
@@ -361,7 +360,9 @@
     });
   });
 </script>
-  
+
+<script src="js/products.js"></script>
+<script src="js/filtesr.js"></script>
 <script type="module" src="js/index-auth.js"></script>
 </body>
 </html>
