@@ -135,11 +135,6 @@
       padding: 1em;
       margin-top: auto;
     }
-
-    input[type="range"] {
-  width: 100%;
-    }
-
   </style>
 </head>
 <body>
@@ -157,7 +152,6 @@
 <div class="main-content">
   <aside class="filters">
     <h3>Фільтр товарів</h3>
-
     <div class="filter-group">
       <label for="categoryFilter">Категорія:</label>
       <select id="categoryFilter">
@@ -169,12 +163,7 @@
       </select>
     </div>
 
-<div id="additionalFilters"></div>
-
-<input type="range" id="priceRange" min="0" max="1200" step="10" />
-<span id="priceValue">1200</span>
-
-<div id="productList"></div>
+    <div id="additionalFilters"></div>
   </aside>
 
   <div class="product-grid" id="productGrid">
@@ -326,7 +315,7 @@
         .filter(p => p.category === category)
         .map(p => p[filter])
       )];
-      select.innerHTML = `<option value="">--</option>` + values.map(v => `<option value="${v}">${v}</option>`).join("");
+      select.innerHTML = <option value="">--</option> + values.map(v => <option value="${v}">${v}</option>).join("");
       label.appendChild(select);
       additionalFilters.appendChild(label);
     });
@@ -360,9 +349,7 @@
     });
   });
 </script>
-
-<script src="js/products.js"></script>
-<script src="js/filters.js"></script>
+  
 <script type="module" src="js/index-auth.js"></script>
 </body>
 </html>
